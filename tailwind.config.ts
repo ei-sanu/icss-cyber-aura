@@ -12,7 +12,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ["Orbitron", "sans-serif"],
+        heading: ["'Bebas Neue'", "sans-serif"],
         body: ["Sora", "sans-serif"],
       },
       colors: {

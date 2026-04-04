@@ -13,47 +13,47 @@ const Contact = () => {
   };
 
   return (
-    <div className="pt-28 pb-20 px-6">
+    <div className="pt-28 pb-20 px-4">
       <div className="max-w-5xl mx-auto">
         <SectionReveal>
-          <div className="text-center mb-16">
-            <h1 className="font-heading text-3xl md:text-5xl font-bold mb-4">
-              Get in <span className="text-gradient-forest">Touch</span>
+          <div className="text-center mb-12 sm:mb-16">
+            <h1 className="font-heading text-4xl sm:text-6xl md:text-7xl text-forest mb-4">
+              Get in Touch
             </h1>
-            <p className="text-muted-foreground max-w-xl mx-auto">
+            <p className="text-foreground/60 max-w-xl mx-auto text-sm sm:text-base">
               Have questions or want to collaborate? Reach out to us.
             </p>
           </div>
         </SectionReveal>
 
-        <div className="grid md:grid-cols-5 gap-8">
+        <div className="grid md:grid-cols-5 gap-6 sm:gap-8">
           <SectionReveal delay={0.1} className="md:col-span-3">
-            <form onSubmit={handleSubmit} className="p-8 rounded-2xl bg-forest/10 border border-forest/20 space-y-6">
+            <form onSubmit={handleSubmit} className="green-card p-6 sm:p-8 space-y-5 sm:space-y-6">
               {[
                 { label: "Name", type: "text", placeholder: "Your name" },
                 { label: "Email", type: "email", placeholder: "your@email.com" },
               ].map((field) => (
                 <div key={field.label}>
-                  <label className="text-xs font-heading tracking-wider text-forest uppercase mb-2 block">
+                  <label className="text-xs font-heading text-base tracking-wider text-golden mb-2 block">
                     {field.label}
                   </label>
                   <input
                     type={field.type}
                     placeholder={field.placeholder}
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-background/50 border border-forest/20 text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:border-forest/50 focus:ring-1 focus:ring-forest/30 transition-all duration-300"
+                    className="w-full px-4 py-3 rounded-xl bg-forest-light/30 border border-primary-foreground/10 text-primary-foreground text-sm placeholder:text-primary-foreground/30 focus:outline-none focus:border-golden/50 focus:ring-1 focus:ring-golden/30 transition-all duration-300"
                   />
                 </div>
               ))}
               <div>
-                <label className="text-xs font-heading tracking-wider text-forest uppercase mb-2 block">
+                <label className="text-xs font-heading text-base tracking-wider text-golden mb-2 block">
                   Message
                 </label>
                 <textarea
                   rows={4}
                   placeholder="Your message..."
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-background/50 border border-forest/20 text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:border-forest/50 focus:ring-1 focus:ring-forest/30 transition-all duration-300 resize-none"
+                  className="w-full px-4 py-3 rounded-xl bg-forest-light/30 border border-primary-foreground/10 text-primary-foreground text-sm placeholder:text-primary-foreground/30 focus:outline-none focus:border-golden/50 focus:ring-1 focus:ring-golden/30 transition-all duration-300 resize-none"
                 />
               </div>
 
@@ -61,7 +61,7 @@ const Contact = () => {
                 type="submit"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full py-3 rounded-full bg-forest text-primary-foreground font-semibold flex items-center justify-center gap-2 hover:shadow-[0_0_30px_hsl(161_96%_14%/0.3)] transition-all duration-300"
+                className="w-full py-3 rounded-full bg-golden text-forest font-heading text-xl tracking-wider flex items-center justify-center gap-2 hover:glow-golden transition-all duration-300"
               >
                 {submitted ? "Sent! ✓" : (
                   <>Send Message <Send size={16} /></>
@@ -71,19 +71,19 @@ const Contact = () => {
           </SectionReveal>
 
           <SectionReveal delay={0.2} className="md:col-span-2">
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               {[
                 { icon: Mail, label: "Email", value: "info@icss.in" },
                 { icon: Phone, label: "Phone", value: "+91 XXXX XXXXXX" },
                 { icon: MapPin, label: "Location", value: "India (Global Operations)" },
               ].map((item) => (
-                <div key={item.label} className="p-5 rounded-xl bg-forest/10 border border-forest/20 hover:glow-forest transition-all duration-500 flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-forest/15 flex items-center justify-center flex-shrink-0">
-                    <item.icon className="w-5 h-5 text-forest" />
+                <div key={item.label} className="green-card p-4 sm:p-5 hover:glow-forest transition-all duration-500 flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-lg bg-golden/15 flex items-center justify-center flex-shrink-0">
+                    <item.icon className="w-5 h-5 text-golden" />
                   </div>
                   <div>
-                    <div className="text-xs font-heading tracking-wider text-forest uppercase">{item.label}</div>
-                    <div className="text-sm text-foreground/80 mt-1">{item.value}</div>
+                    <div className="font-heading text-lg text-golden">{item.label}</div>
+                    <div className="text-sm text-primary-foreground/60 mt-0.5">{item.value}</div>
                   </div>
                 </div>
               ))}

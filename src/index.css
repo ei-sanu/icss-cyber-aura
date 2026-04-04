@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Sora:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sora:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -9,11 +9,11 @@
     --background: 47 100% 50%;
     --foreground: 161 96% 10%;
 
-    --card: 47 100% 48%;
-    --card-foreground: 161 96% 10%;
+    --card: 161 96% 14%;
+    --card-foreground: 47 100% 92%;
 
-    --popover: 47 90% 45%;
-    --popover-foreground: 161 96% 10%;
+    --popover: 161 96% 14%;
+    --popover-foreground: 47 100% 92%;
 
     --primary: 161 96% 14%;
     --primary-foreground: 47 100% 95%;
@@ -30,8 +30,8 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 47 50% 40%;
-    --input: 47 50% 42%;
+    --border: 161 40% 25%;
+    --input: 161 40% 20%;
     --ring: 161 96% 14%;
 
     --radius: 0.75rem;
@@ -63,7 +63,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading;
+    @apply font-heading uppercase;
   }
 
   ::selection {
@@ -93,20 +93,23 @@
   .glass-strong {
     @apply bg-forest/30 backdrop-blur-2xl border border-forest/30;
   }
-  .glass-golden {
-    @apply bg-golden/30 backdrop-blur-xl border border-golden-dim/30;
-  }
   .glow-forest {
     box-shadow: 0 0 20px hsl(161 96% 14% / 0.2), 0 0 60px hsl(161 96% 14% / 0.05);
   }
   .glow-forest-strong {
     box-shadow: 0 0 30px hsl(161 96% 14% / 0.3), 0 0 80px hsl(161 96% 14% / 0.1);
   }
+  .glow-golden {
+    box-shadow: 0 0 20px hsl(47 100% 50% / 0.3), 0 0 60px hsl(47 100% 50% / 0.1);
+  }
   .text-gradient-forest {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-forest via-forest-deep to-forest;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-forest via-forest-light to-forest;
   }
   .neon-border {
     @apply border border-forest/30;
     box-shadow: inset 0 0 20px hsl(161 96% 14% / 0.05), 0 0 15px hsl(161 96% 14% / 0.08);
+  }
+  .green-card {
+    @apply bg-forest text-primary-foreground rounded-2xl;
   }
 }
