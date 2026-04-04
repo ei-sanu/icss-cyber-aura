@@ -8,17 +8,28 @@ export default {
     container: {
       center: true,
       padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
+      screens: { "2xl": "1400px" },
     },
     extend: {
+      fontFamily: {
+        heading: ["Orbitron", "sans-serif"],
+        body: ["Sora", "sans-serif"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        golden: {
+          DEFAULT: "hsl(var(--golden))",
+          dim: "hsl(var(--golden-dim))",
+        },
+        forest: {
+          DEFAULT: "hsl(var(--forest))",
+          deep: "hsl(var(--forest-deep))",
+          light: "hsl(var(--forest-light))",
+        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -65,25 +76,42 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "pulse-glow": {
+          "0%, 100%": { opacity: "0.4" },
+          "50%": { opacity: "1" },
+        },
+        "spin-slow": {
+          from: { transform: "rotate(0deg)" },
+          to: { transform: "rotate(360deg)" },
+        },
+        "spin-reverse": {
+          from: { transform: "rotate(360deg)" },
+          to: { transform: "rotate(0deg)" },
+        },
+        float: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-20px)" },
+        },
+        "scan-line": {
+          "0%": { top: "0%" },
+          "100%": { top: "100%" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "pulse-glow": "pulse-glow 2s ease-in-out infinite",
+        "spin-slow": "spin-slow 8s linear infinite",
+        "spin-reverse": "spin-reverse 6s linear infinite",
+        float: "float 6s ease-in-out infinite",
+        "scan-line": "scan-line 3s linear infinite",
       },
     },
   },
