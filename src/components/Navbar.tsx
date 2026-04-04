@@ -6,6 +6,7 @@ import { Menu, X, Shield } from "lucide-react";
 const navItems = [
   { label: "Home", path: "/" },
   { label: "About", path: "/about" },
+  { label: "Events", path: "/events" },
   { label: "Ambassadors", path: "/ambassadors" },
   { label: "Contact", path: "/contact" },
 ];
@@ -31,8 +32,8 @@ const Navbar = () => {
       className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4"
     >
       <div
-        className={`w-full max-w-5xl rounded-full transition-all duration-500 ${
-          scrolled ? "bg-forest/95 shadow-lg" : "bg-forest/90"
+        className={`w-full max-w-5xl rounded-2xl transition-all duration-500 ${
+          scrolled ? "bg-forest/95 shadow-lg shadow-forest/20" : "bg-forest/90"
         } backdrop-blur-xl border border-forest-light/20 px-5 sm:px-6 py-3`}
       >
         <div className="flex items-center justify-between">
@@ -44,8 +45,8 @@ const Navbar = () => {
             </span>
           </Link>
 
-          {/* Center nav */}
-          <div className="hidden md:flex items-center gap-6">
+          {/* Center nav - truly centered */}
+          <div className="hidden md:flex items-center gap-5 lg:gap-7">
             {navItems.map((item) => {
               const active = location.pathname === item.path;
               return (
@@ -81,10 +82,11 @@ const Navbar = () => {
 
           {/* Mobile toggle */}
           <button
-            className="md:hidden text-golden"
+            className="md:hidden text-golden p-1"
             onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
           >
-            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
@@ -98,12 +100,13 @@ const Navbar = () => {
               transition={{ duration: 0.3 }}
               className="md:hidden overflow-hidden mt-4"
             >
-              <div className="flex flex-col gap-2 pb-4">
+              <div className="flex flex-col gap-1 pb-4">
                 {navItems.map((item) => (
                   <Link
                     key={item.path}
                     to={item.path}
-                    className={`text-sm px-4 py-2.5 rounded-xl transition-all duration-200 ${
+                    onClick={() => setMobileOpen(false)}
+                    className={`text-sm px-4 py-3 rounded-xl transition-all duration-200 ${
                       location.pathname === item.path
                         ? "text-forest bg-golden font-semibold"
                         : "text-primary-foreground/70 hover:text-golden hover:bg-golden/10"
@@ -112,7 +115,7 @@ const Navbar = () => {
                     {item.label}
                   </Link>
                 ))}
-                <div className="flex items-center gap-3 px-4 pt-3 border-t border-primary-foreground/10">
+                <div className="flex items-center gap-3 px-4 pt-3 border-t border-primary-foreground/10 mt-2">
                   <button className="text-sm text-primary-foreground/60">Sign in</button>
                   <button className="text-sm font-semibold px-5 py-2 rounded-full bg-golden text-forest">
                     Get Started
