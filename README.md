@@ -1,3 +1,2 @@
-# Welcome to your Lovable project
+# Welcome to ICSS DEV
 
-TODO: Document your project here
