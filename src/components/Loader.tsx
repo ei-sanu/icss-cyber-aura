@@ -9,32 +9,26 @@ const Loader = ({ isLoading }: LoaderProps) => {
     <AnimatePresence>
       {isLoading && (
         <motion.div
-          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-background"
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center"
+          style={{ backgroundColor: "hsl(47 100% 50%)" }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
         >
-          {/* Cyber grid background */}
-          <div className="absolute inset-0 cyber-grid opacity-20" />
-
-          {/* Scanning line */}
-          <div className="absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-golden to-transparent animate-scan-line opacity-40" />
-
           {/* Rings */}
           <div className="relative w-40 h-40 mb-8">
-            <div className="absolute inset-0 rounded-full border-2 border-golden/30 animate-spin-slow" />
-            <div className="absolute inset-3 rounded-full border border-golden/50 animate-spin-reverse" />
-            <div className="absolute inset-6 rounded-full border border-forest-light/60 animate-spin-slow" style={{ animationDuration: "4s" }} />
+            <div className="absolute inset-0 rounded-full border-2 border-forest/40 animate-spin-slow" />
+            <div className="absolute inset-3 rounded-full border border-forest/60 animate-spin-reverse" />
+            <div className="absolute inset-6 rounded-full border border-forest/30 animate-spin-slow" style={{ animationDuration: "4s" }} />
             
             {/* Center glow */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-8 h-8 rounded-full bg-golden/20 animate-pulse-glow glow-golden-strong" />
+              <div className="w-8 h-8 rounded-full bg-forest/20 animate-pulse" />
             </div>
 
-            {/* Corner dots */}
             {[0, 90, 180, 270].map((deg) => (
               <motion.div
                 key={deg}
-                className="absolute w-2 h-2 rounded-full bg-golden"
+                className="absolute w-2 h-2 rounded-full bg-forest"
                 style={{
                   top: "50%",
                   left: "50%",
@@ -47,19 +41,16 @@ const Loader = ({ isLoading }: LoaderProps) => {
           </div>
 
           <motion.p
-            className="font-heading text-sm tracking-[0.3em] text-golden uppercase"
+            className="font-heading text-sm tracking-[0.3em] text-forest uppercase"
             animate={{ opacity: [0.5, 1, 0.5] }}
             transition={{ duration: 2, repeat: Infinity }}
           >
             Initializing Secure Interface...
           </motion.p>
 
-          {/* Progress bar */}
-          <motion.div
-            className="mt-6 h-px w-48 overflow-hidden rounded-full bg-forest-light/30"
-          >
+          <motion.div className="mt-6 h-px w-48 overflow-hidden rounded-full bg-forest/20">
             <motion.div
-              className="h-full bg-gradient-to-r from-golden to-golden-dim"
+              className="h-full bg-forest"
               initial={{ width: "0%" }}
               animate={{ width: "100%" }}
               transition={{ duration: 2.5, ease: "easeInOut" }}
