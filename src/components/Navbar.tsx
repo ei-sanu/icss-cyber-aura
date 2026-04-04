@@ -28,28 +28,30 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl transition-all duration-500 ${
-        scrolled ? "glass-strong glow-golden" : "glass"
-      } rounded-full px-6 py-3`}
+      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-5xl transition-all duration-500 ${
+        scrolled ? "bg-forest/90 backdrop-blur-2xl shadow-lg" : "bg-forest/70 backdrop-blur-xl"
+      } rounded-full px-6 py-3 border border-forest-light/20`}
     >
       <div className="flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 group">
+        <Link to="/" className="flex items-center gap-2 group flex-shrink-0">
           <Shield className="w-5 h-5 text-golden transition-transform duration-300 group-hover:rotate-12" />
           <span className="font-heading text-sm font-bold tracking-wider text-golden">
-            ICSS <span className="text-foreground/70 font-body italic">ARC</span>
+            ICSS <span className="text-primary-foreground/70 font-body italic">ARC</span>
           </span>
         </Link>
 
-        {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-8">
+        {/* Center nav */}
+        <div className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
           {navItems.map((item) => {
             const active = location.pathname === item.path;
             return (
               <Link
                 key={item.path}
                 to={item.path}
-                className="relative text-sm font-medium tracking-wide transition-colors duration-300 hover:text-golden text-foreground/70"
+                className={`relative text-sm font-medium tracking-wide transition-colors duration-300 ${
+                  active ? "text-golden" : "text-primary-foreground/70 hover:text-golden"
+                }`}
               >
                 {item.label}
                 {active && (
@@ -65,11 +67,11 @@ const Navbar = () => {
         </div>
 
         {/* Right side */}
-        <div className="hidden md:flex items-center gap-4">
-          <button className="text-sm text-foreground/60 hover:text-golden transition-colors duration-300">
+        <div className="hidden md:flex items-center gap-4 flex-shrink-0">
+          <button className="text-sm text-primary-foreground/60 hover:text-golden transition-colors duration-300">
             Sign in
           </button>
-          <button className="text-sm font-semibold px-5 py-2 rounded-full bg-golden text-primary-foreground hover:shadow-[0_0_20px_hsl(47_100%_50%/0.4)] transition-all duration-300">
+          <button className="text-sm font-semibold px-5 py-2 rounded-full bg-golden text-forest hover:shadow-[0_0_20px_hsl(47_100%_50%/0.4)] transition-all duration-300">
             Get Started
           </button>
         </div>
@@ -101,15 +103,15 @@ const Navbar = () => {
                   className={`text-sm px-4 py-2 rounded-lg transition-colors duration-200 ${
                     location.pathname === item.path
                       ? "text-golden bg-golden/10"
-                      : "text-foreground/70 hover:text-golden"
+                      : "text-primary-foreground/70 hover:text-golden"
                   }`}
                 >
                   {item.label}
                 </Link>
               ))}
               <div className="flex gap-3 px-4 pt-2">
-                <button className="text-sm text-foreground/60">Sign in</button>
-                <button className="text-sm font-semibold px-5 py-2 rounded-full bg-golden text-primary-foreground">
+                <button className="text-sm text-primary-foreground/60">Sign in</button>
+                <button className="text-sm font-semibold px-5 py-2 rounded-full bg-golden text-forest">
                   Get Started
                 </button>
               </div>

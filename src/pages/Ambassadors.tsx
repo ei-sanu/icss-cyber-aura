@@ -34,7 +34,7 @@ const Ambassadors = () => {
         <SectionReveal>
           <div className="text-center mb-12">
             <h1 className="font-heading text-3xl md:text-5xl font-bold mb-4">
-              Our <span className="text-gradient-golden">Ambassadors</span>
+              Our <span className="text-gradient-forest">Ambassadors</span>
             </h1>
             <p className="text-muted-foreground max-w-xl mx-auto">
               Meet the leaders driving cybersecurity awareness across campuses nationwide.
@@ -42,7 +42,6 @@ const Ambassadors = () => {
           </div>
         </SectionReveal>
 
-        {/* Search & Filters */}
         <SectionReveal delay={0.1}>
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-between mb-10">
             <div className="relative w-full sm:w-80">
@@ -52,7 +51,7 @@ const Ambassadors = () => {
                 placeholder="Search by name or skill..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full pl-11 pr-4 py-3 rounded-full glass neon-border bg-transparent text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-golden/50 transition-all duration-300"
+                className="w-full pl-11 pr-4 py-3 rounded-full bg-forest/10 border border-forest/20 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-forest/50 focus:ring-1 focus:ring-forest/30 transition-all duration-300"
               />
             </div>
             <div className="flex gap-2 flex-wrap">
@@ -62,8 +61,8 @@ const Ambassadors = () => {
                   onClick={() => setActiveFilter(f)}
                   className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 ${
                     activeFilter === f
-                      ? "bg-golden text-primary-foreground glow-golden"
-                      : "glass neon-border text-muted-foreground hover:text-golden"
+                      ? "bg-forest text-primary-foreground"
+                      : "bg-forest/10 border border-forest/20 text-muted-foreground hover:text-forest"
                   }`}
                 >
                   {f}
@@ -73,7 +72,6 @@ const Ambassadors = () => {
           </div>
         </SectionReveal>
 
-        {/* Grid */}
         <motion.div layout className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <AnimatePresence mode="popLayout">
             {filtered.map((a) => (
@@ -85,22 +83,21 @@ const Ambassadors = () => {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
                 whileHover={{ y: -8 }}
-                className="group p-6 rounded-2xl glass neon-border hover:glow-golden-strong transition-all duration-500"
+                className="group p-6 rounded-2xl bg-forest/10 border border-forest/20 hover:glow-forest-strong transition-all duration-500"
               >
-                {/* Avatar */}
-                <div className="w-16 h-16 rounded-full bg-golden/10 border border-golden/30 flex items-center justify-center mx-auto mb-4 group-hover:border-golden group-hover:glow-golden transition-all duration-500">
-                  <User className="w-7 h-7 text-golden/60 group-hover:text-golden transition-colors duration-300" />
+                <div className="w-16 h-16 rounded-full bg-forest/15 border border-forest/30 flex items-center justify-center mx-auto mb-4 group-hover:border-forest group-hover:glow-forest transition-all duration-500">
+                  <User className="w-7 h-7 text-forest/60 group-hover:text-forest transition-colors duration-300" />
                 </div>
 
-                <h3 className="font-heading text-sm font-bold text-center text-foreground group-hover:text-golden transition-colors duration-300">
+                <h3 className="font-heading text-sm font-bold text-center text-foreground group-hover:text-forest transition-colors duration-300">
                   {a.name}
                 </h3>
                 <p className="text-xs text-muted-foreground text-center mt-1">{a.college}</p>
-                <p className="text-xs text-golden/70 text-center mt-1 font-semibold">{a.role}</p>
+                <p className="text-xs text-forest text-center mt-1 font-semibold">{a.role}</p>
 
                 <div className="flex flex-wrap gap-1.5 justify-center mt-4">
                   {a.skills.map((s) => (
-                    <span key={s} className="px-2 py-0.5 rounded-full text-[10px] bg-golden/10 text-golden border border-golden/20">
+                    <span key={s} className="px-2 py-0.5 rounded-full text-[10px] bg-forest/10 text-forest border border-forest/20">
                       {s}
                     </span>
                   ))}
@@ -108,11 +105,7 @@ const Ambassadors = () => {
 
                 <div className="flex gap-3 justify-center mt-5">
                   {[Github, Linkedin, Twitter].map((Icon, i) => (
-                    <a
-                      key={i}
-                      href="#"
-                      className="text-muted-foreground hover:text-golden transition-colors duration-200"
-                    >
+                    <a key={i} href="#" className="text-muted-foreground hover:text-forest transition-colors duration-200">
                       <Icon size={14} />
                     </a>
                   ))}
