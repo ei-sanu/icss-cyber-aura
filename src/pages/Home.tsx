@@ -1,8 +1,8 @@
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Zap, Shield, Lock, Globe } from "lucide-react";
-import { Link } from "react-router-dom";
 import SectionReveal from "@/components/SectionReveal";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowRight, BadgeCheck, BrainCircuit, Globe, Lock, Radar, Shield, Sparkles, Users, Zap } from "lucide-react";
+import { useRef } from "react";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -82,14 +82,51 @@ const Home = () => {
         </div>
       </motion.section>
 
+      {/* Trust strip */}
+      <section className="px-4 pb-8 sm:pb-12">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
+          {[
+            {
+              icon: Sparkles,
+              title: "Hands-on learning",
+              text: "Practical workshops, guided labs, and real-world security scenarios built for students and professionals.",
+            },
+            {
+              icon: Users,
+              title: "Campus-first community",
+              text: "A network of ambassadors and mentors that keeps programs active across colleges and regions.",
+            },
+            {
+              icon: BadgeCheck,
+              title: "Industry-aligned tracks",
+              text: "Training paths mapped to ethical hacking, cloud security, AI, networking, and digital forensics.",
+            },
+          ].map((item, i) => (
+            <SectionReveal key={item.title} delay={i * 0.1}>
+              <div className="green-card p-5 sm:p-6 h-full flex items-start gap-4 hover:glow-forest transition-all duration-500">
+                <div className="w-11 h-11 rounded-xl bg-golden/15 flex items-center justify-center flex-shrink-0">
+                  <item.icon className="w-5 h-5 text-golden" />
+                </div>
+                <div>
+                  <h3 className="font-heading text-xl text-golden mb-1">{item.title}</h3>
+                  <p className="text-sm text-primary-foreground/70 leading-relaxed">{item.text}</p>
+                </div>
+              </div>
+            </SectionReveal>
+          ))}
+        </div>
+      </section>
+
       {/* Stats with scroll animation */}
       <motion.section ref={statsRef} style={{ y: statsY }} className="py-16 sm:py-20 px-4">
-        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+        <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-6 gap-4 sm:gap-6">
           {[
             { value: "200+", label: "Global Clients", icon: Globe },
             { value: "2016", label: "Established", icon: Shield },
             { value: "50+", label: "Ambassadors", icon: Zap },
             { value: "7+", label: "Programs", icon: Lock },
+            { value: "24/7", label: "Guidance", icon: Radar },
+            { value: "100%", label: "Growth Focus", icon: BrainCircuit },
           ].map((stat, i) => (
             <SectionReveal key={stat.label} delay={i * 0.1}>
               <div className="green-card p-5 sm:p-6 text-center hover:scale-105 hover:glow-forest transition-all duration-500 group">
@@ -109,7 +146,7 @@ const Home = () => {
         <div className="max-w-5xl mx-auto">
           <SectionReveal>
             <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl text-center text-forest mb-12 sm:mb-16">
-              Why ICSS ARC?
+              Why ICSS CAN?
             </h2>
           </SectionReveal>
 
@@ -144,6 +181,58 @@ const Home = () => {
               </SectionReveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* What you get */}
+      <section className="py-8 sm:py-12 px-4">
+        <div className="max-w-6xl mx-auto grid lg:grid-cols-[1.15fr_0.85fr] gap-6 sm:gap-8 items-stretch">
+          <SectionReveal>
+            <div className="green-card p-6 sm:p-8 lg:p-10 h-full">
+              <p className="text-xs tracking-[0.3em] uppercase text-golden/70 mb-3">Program outcome</p>
+              <h2 className="font-heading text-3xl sm:text-5xl text-golden mb-4">Built for momentum, not just presentation</h2>
+              <p className="text-primary-foreground/70 leading-relaxed mb-6">
+                ICSS CAN gives students a structured way to move from curiosity to capability, with hands-on security exposure,
+                mentor support, and opportunities to represent their campus at events and awareness drives.
+              </p>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {[
+                  "Cybersecurity bootcamps and live demos",
+                  "Ambassador playbooks and community support",
+                  "Challenge-based learning and CTF preparation",
+                  "Portfolio-ready projects and certificates",
+                ].map((item) => (
+                  <div key={item} className="rounded-2xl border border-golden/20 bg-golden/5 px-4 py-3 text-sm text-primary-foreground/80">
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </SectionReveal>
+
+          <SectionReveal delay={0.15}>
+            <div className="grid gap-4 h-full">
+              {[
+                {
+                  title: "Ambassador support",
+                  text: "Regional coordination, onboarding help, and campaign material so each chapter can keep moving.",
+                },
+                {
+                  title: "Event playbooks",
+                  text: "Clear formats for workshops, awareness sessions, quizzes, and hands-on competitions.",
+                },
+                {
+                  title: "Mentor network",
+                  text: "Access to practitioners who can guide speaking, problem-solving, and technical depth.",
+                },
+              ].map((item) => (
+                <div key={item.title} className="green-card p-5 sm:p-6 hover:glow-forest transition-all duration-500">
+                  <h3 className="font-heading text-2xl text-golden mb-2">{item.title}</h3>
+                  <p className="text-sm text-primary-foreground/70 leading-relaxed">{item.text}</p>
+                </div>
+              ))}
+            </div>
+          </SectionReveal>
         </div>
       </section>
     </div>

@@ -1,7 +1,7 @@
-import { useState, FormEvent } from "react";
-import { motion } from "framer-motion";
-import { Send, Mail, MapPin, Phone } from "lucide-react";
 import SectionReveal from "@/components/SectionReveal";
+import { motion } from "framer-motion";
+import { ArrowRight, Clock3, Globe, Mail, MapPin, MessageCircle, Phone, Send, ShieldCheck } from "lucide-react";
+import { FormEvent, useState } from "react";
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -23,6 +23,23 @@ const Contact = () => {
             <p className="text-foreground/60 max-w-xl mx-auto text-sm sm:text-base">
               Have questions or want to collaborate? Reach out to us.
             </p>
+          </div>
+        </SectionReveal>
+
+        <SectionReveal delay={0.08}>
+          <div className="grid md:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-10">
+            {[
+              { icon: ShieldCheck, title: "Partnerships", text: "Schools, colleges, and companies" },
+              { icon: MessageCircle, title: "Events", text: "Workshops and awareness sessions" },
+              { icon: Clock3, title: "Support hours", text: "Mon to Sat, 10:00 AM to 6:00 PM" },
+              { icon: Globe, title: "Coverage", text: "India-wide, with remote coordination" },
+            ].map((item) => (
+              <div key={item.title} className="green-card p-5 sm:p-6 hover:glow-forest transition-all duration-500">
+                <item.icon className="w-6 h-6 text-golden mb-3" />
+                <h2 className="font-heading text-xl text-golden mb-1">{item.title}</h2>
+                <p className="text-sm text-primary-foreground/70 leading-relaxed">{item.text}</p>
+              </div>
+            ))}
           </div>
         </SectionReveal>
 
@@ -87,6 +104,19 @@ const Contact = () => {
                   </div>
                 </div>
               ))}
+
+              <div className="green-card p-5 sm:p-6 hover:glow-forest transition-all duration-500">
+                <h2 className="font-heading text-2xl text-golden mb-3">What happens next</h2>
+                <div className="space-y-3 text-sm text-primary-foreground/70 leading-relaxed">
+                  <p>We review the message and route it to the right team.</p>
+                  <p>You'll get a response with the next steps or a request for more detail.</p>
+                  <p>For event and ambassador requests, we usually suggest a quick follow-up call.</p>
+                </div>
+                <a href="/about" className="mt-5 inline-flex items-center gap-2 text-golden font-heading text-lg tracking-wider">
+                  Learn more about ICSS
+                  <ArrowRight size={16} />
+                </a>
+              </div>
             </div>
           </SectionReveal>
         </div>

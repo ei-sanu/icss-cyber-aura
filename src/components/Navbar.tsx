@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Menu, Shield, X } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Shield } from "lucide-react";
 
 const navItems = [
   { label: "Home", path: "/" },
@@ -32,16 +32,15 @@ const Navbar = () => {
       className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4"
     >
       <div
-        className={`w-full max-w-5xl rounded-full transition-all duration-500 ${
-          scrolled ? "bg-forest shadow-lg shadow-forest-deep/40" : "bg-forest"
-        } backdrop-blur-xl border border-forest-light/20 px-5 sm:px-6 py-3`}
+        className={`w-full max-w-5xl rounded-full transition-all duration-500 ${scrolled ? "bg-forest shadow-lg shadow-forest-deep/40" : "bg-forest"
+          } backdrop-blur-xl border border-forest-light/20 px-5 sm:px-6 py-3`}
       >
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group flex-shrink-0">
             <Shield className="w-5 h-5 text-golden transition-transform duration-300 group-hover:rotate-12" />
             <span className="font-heading text-xl tracking-wider text-golden">
-              ICSS <span className="text-primary-foreground/70 font-body text-sm italic">ARC</span>
+              ICSS <span className="text-primary-foreground/70 font-body text-sm italic">CAN</span>
             </span>
           </Link>
 
@@ -53,9 +52,8 @@ const Navbar = () => {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`relative text-sm font-medium tracking-wide transition-colors duration-300 ${
-                    active ? "text-golden" : "text-primary-foreground/70 hover:text-golden"
-                  }`}
+                  className={`relative text-sm font-medium tracking-wide transition-colors duration-300 ${active ? "text-golden" : "text-primary-foreground/70 hover:text-golden"
+                    }`}
                 >
                   {item.label}
                   {active && (
@@ -106,11 +104,10 @@ const Navbar = () => {
                     key={item.path}
                     to={item.path}
                     onClick={() => setMobileOpen(false)}
-                    className={`text-sm px-4 py-3 rounded-xl transition-all duration-200 ${
-                      location.pathname === item.path
+                    className={`text-sm px-4 py-3 rounded-xl transition-all duration-200 ${location.pathname === item.path
                         ? "text-forest bg-golden font-semibold"
                         : "text-primary-foreground/70 hover:text-golden hover:bg-golden/10"
-                    }`}
+                      }`}
                   >
                     {item.label}
                   </Link>

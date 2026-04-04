@@ -1,9 +1,9 @@
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import SectionReveal from "@/components/SectionReveal";
-import { ShieldCheck, Cloud, Cpu, Code, Network, Lock, FlaskConical } from "lucide-react";
-import aboutTeam from "@/assets/about-team.jpg";
 import aboutOffice from "@/assets/about-office.jpg";
+import aboutTeam from "@/assets/about-team.jpg";
+import SectionReveal from "@/components/SectionReveal";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { Cloud, Code, Cpu, Eye, FlaskConical, HeartHandshake, Lock, Network, ShieldCheck, Sparkles, Target, Trophy, Users } from "lucide-react";
+import { useRef } from "react";
 
 const timeline = [
   { year: "2016", event: "ICSS founded as a unit of GreenFellow IT Security Solutions Pvt Ltd" },
@@ -21,6 +21,31 @@ const programs = [
   { icon: Code, name: "Python" },
   { icon: Network, name: "CCNA Networking" },
   { icon: ShieldCheck, name: "Blockchain" },
+];
+
+const principles = [
+  {
+    icon: Target,
+    title: "Mission",
+    text: "Equip students and young professionals with practical cybersecurity knowledge they can use immediately.",
+  },
+  {
+    icon: Eye,
+    title: "Vision",
+    text: "Build a nationwide ambassador network that makes security awareness visible, accessible, and continuous.",
+  },
+  {
+    icon: HeartHandshake,
+    title: "Approach",
+    text: "Combine community, mentorship, and hands-on delivery so learning becomes a repeatable habit.",
+  },
+];
+
+const outcomes = [
+  "Campus workshops that are easy to run and scale",
+  "Technical tracks with structured progression",
+  "Leadership opportunities through ambassador roles",
+  "A community that keeps members engaged after events",
 ];
 
 const About = () => {
@@ -45,6 +70,21 @@ const About = () => {
           </p>
         </SectionReveal>
       </motion.section>
+
+      {/* Principles */}
+      <section className="max-w-6xl mx-auto mb-20 sm:mb-24 px-4">
+        <div className="grid md:grid-cols-3 gap-4 sm:gap-6">
+          {principles.map((item, i) => (
+            <SectionReveal key={item.title} delay={i * 0.12}>
+              <div className="green-card p-6 sm:p-7 h-full hover:glow-forest transition-all duration-500">
+                <item.icon className="w-7 h-7 text-golden mb-4" />
+                <h2 className="font-heading text-2xl text-golden mb-2">{item.title}</h2>
+                <p className="text-sm text-primary-foreground/70 leading-relaxed">{item.text}</p>
+              </div>
+            </SectionReveal>
+          ))}
+        </div>
+      </section>
 
       {/* Team & Office images section */}
       <section className="max-w-5xl mx-auto mb-20 sm:mb-24">
@@ -92,6 +132,63 @@ const About = () => {
         </p>
       </section>
 
+      {/* What makes ICSS different */}
+      <section className="max-w-6xl mx-auto mb-20 sm:mb-24 px-4">
+        <SectionReveal>
+          <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-6 sm:gap-8 items-stretch">
+            <div className="green-card p-6 sm:p-8 lg:p-10">
+              <p className="text-xs tracking-[0.3em] uppercase text-golden/70 mb-3">Why people stay</p>
+              <h2 className="font-heading text-3xl sm:text-4xl text-golden mb-4">A learning path with real follow-through</h2>
+              <p className="text-primary-foreground/70 leading-relaxed mb-6">
+                The ICSS ecosystem is designed to keep people moving from one milestone to the next. That means the content,
+                mentorship, and community experience all work together instead of feeling like isolated one-off events.
+              </p>
+              <div className="space-y-3">
+                {outcomes.map((item) => (
+                  <div key={item} className="flex items-start gap-3 rounded-2xl bg-golden/5 border border-golden/10 px-4 py-3">
+                    <Sparkles className="w-4 h-4 text-golden mt-0.5 flex-shrink-0" />
+                    <span className="text-sm text-primary-foreground/80">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
+              {[
+                {
+                  icon: Users,
+                  title: "Community first",
+                  text: "Programs are shaped to support campus leaders, not just deliver presentations.",
+                },
+                {
+                  icon: Trophy,
+                  title: "Achievement focused",
+                  text: "Members can demonstrate growth through events, credentials, and competition outcomes.",
+                },
+                {
+                  icon: ShieldCheck,
+                  title: "Security depth",
+                  text: "Every track keeps the cybersecurity context visible and practical.",
+                },
+                {
+                  icon: Lock,
+                  title: "Modern coverage",
+                  text: "Cloud, AI, networking, and testing topics are all included in the learning mix.",
+                },
+              ].map((item, i) => (
+                <SectionReveal key={item.title} delay={i * 0.08}>
+                  <div className="green-card p-5 sm:p-6 h-full hover:glow-forest-strong transition-all duration-500">
+                    <item.icon className="w-6 h-6 text-golden mb-3" />
+                    <h3 className="font-heading text-xl text-golden mb-2">{item.title}</h3>
+                    <p className="text-sm text-primary-foreground/70 leading-relaxed">{item.text}</p>
+                  </div>
+                </SectionReveal>
+              ))}
+            </div>
+          </div>
+        </SectionReveal>
+      </section>
+
       {/* Timeline */}
       <section className="max-w-3xl mx-auto mb-20 sm:mb-24">
         <SectionReveal>
@@ -105,9 +202,8 @@ const About = () => {
 
           {timeline.map((item, i) => (
             <SectionReveal key={item.year} delay={i * 0.1}>
-              <div className={`relative flex items-start gap-4 sm:gap-6 mb-8 ${
-                i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-              }`}>
+              <div className={`relative flex items-start gap-4 sm:gap-6 mb-8 ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                }`}>
                 <div className="hidden md:block flex-1" />
                 <div className="relative z-10 flex-shrink-0">
                   <motion.div
@@ -164,6 +260,26 @@ const About = () => {
               The ICSS R&D division is driven by innovation from young engineers, constantly pushing
               boundaries in vulnerability assessment, penetration testing, and next-gen security solutions.
             </p>
+          </div>
+        </SectionReveal>
+      </section>
+
+      {/* Closing CTA */}
+      <section className="max-w-5xl mx-auto px-4 mt-20 sm:mt-24">
+        <SectionReveal>
+          <div className="green-card p-8 sm:p-10 text-center hover:glow-forest transition-all duration-500">
+            <h2 className="font-heading text-3xl sm:text-4xl text-golden mb-3">Ready to build with ICSS CAN?</h2>
+            <p className="text-primary-foreground/70 max-w-2xl mx-auto mb-6 leading-relaxed">
+              Join the ambassador network, launch a chapter event, or explore one of the technical tracks that fits your next step.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <a href="/ambassadors" className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-golden text-forest font-heading text-lg tracking-wider">
+                Meet Ambassadors
+              </a>
+              <a href="/contact" className="inline-flex items-center justify-center px-6 py-3 rounded-full border border-golden/40 text-golden font-heading text-lg tracking-wider">
+                Contact the Team
+              </a>
+            </div>
           </div>
         </SectionReveal>
       </section>

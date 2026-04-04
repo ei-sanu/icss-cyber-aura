@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Search, Github, Linkedin, Twitter, User } from "lucide-react";
 import SectionReveal from "@/components/SectionReveal";
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronRight, Github, GraduationCap, Linkedin, MapPinned, Search, Sparkles, Twitter, User, Users } from "lucide-react";
+import { useState } from "react";
 
 const ambassadors = [
   { name: "Arjun Sharma", college: "IIT Delhi", role: "Lead Ambassador", skills: ["Pentesting", "OSINT"], region: "North" },
@@ -15,6 +15,13 @@ const ambassadors = [
 ];
 
 const filters = ["All", "North", "South", "East", "West"];
+
+const highlights = [
+  { icon: Users, title: "Peer leadership", text: "Ambassadors lead awareness sessions, help onboard new members, and keep chapters moving." },
+  { icon: Sparkles, title: "Visible growth", text: "Members gain opportunities to present, mentor, and represent their campus publicly." },
+  { icon: GraduationCap, title: "Learning by doing", text: "Every ambassador gets direct access to practical, project-based activities." },
+  { icon: MapPinned, title: "Regional reach", text: "Coverage across regions keeps the community balanced and locally active." },
+];
 
 const Ambassadors = () => {
   const [search, setSearch] = useState("");
@@ -42,6 +49,18 @@ const Ambassadors = () => {
           </div>
         </SectionReveal>
 
+        <SectionReveal delay={0.08}>
+          <div className="grid md:grid-cols-4 gap-4 sm:gap-6 mb-10 sm:mb-12">
+            {highlights.map((item, i) => (
+              <div key={item.title} className="green-card p-5 sm:p-6 h-full hover:glow-forest transition-all duration-500">
+                <item.icon className="w-6 h-6 text-golden mb-3" />
+                <h2 className="font-heading text-xl text-golden mb-2">{item.title}</h2>
+                <p className="text-sm text-primary-foreground/70 leading-relaxed">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </SectionReveal>
+
         <SectionReveal delay={0.1}>
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-between mb-8 sm:mb-10">
             <div className="relative w-full sm:w-80">
@@ -59,11 +78,10 @@ const Ambassadors = () => {
                 <button
                   key={f}
                   onClick={() => setActiveFilter(f)}
-                  className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 ${
-                    activeFilter === f
+                  className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 ${activeFilter === f
                       ? "bg-forest text-golden"
                       : "bg-forest/10 border-2 border-forest/20 text-foreground/60 hover:border-forest hover:text-forest"
-                  }`}
+                    }`}
                 >
                   {f}
                 </button>
@@ -118,6 +136,44 @@ const Ambassadors = () => {
         {filtered.length === 0 && (
           <p className="text-center text-foreground/50 mt-12 font-heading text-xl">No ambassadors found.</p>
         )}
+
+        <SectionReveal delay={0.12}>
+          <div className="mt-16 sm:mt-20 grid lg:grid-cols-[1.1fr_0.9fr] gap-6 sm:gap-8 items-stretch">
+            <div className="green-card p-6 sm:p-8 hover:glow-forest transition-all duration-500">
+              <h2 className="font-heading text-3xl sm:text-4xl text-golden mb-3">What ambassadors actually do</h2>
+              <p className="text-primary-foreground/70 leading-relaxed mb-5">
+                The role goes beyond a title. Ambassadors help host sessions, support event promotion, welcome new students,
+                and turn cybersecurity into something visible on campus.
+              </p>
+              <div className="space-y-3">
+                {[
+                  "Run meetups and awareness drives",
+                  "Represent ICSS at college events",
+                  "Support peers with starter resources",
+                  "Share feedback to improve programs",
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-3 text-sm text-primary-foreground/80">
+                    <ChevronRight className="w-4 h-4 text-golden flex-shrink-0" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid gap-4">
+              {[
+                { title: "Open to learners", text: "Ambassador programs are designed for people who want to grow into leadership, not just experts." },
+                { title: "Built for campuses", text: "The structure fits student schedules, local clubs, and chapter-based outreach." },
+                { title: "Growth over hype", text: "The emphasis stays on delivery, consistency, and measurable community impact." },
+              ].map((item) => (
+                <div key={item.title} className="green-card p-5 sm:p-6 hover:glow-forest-strong transition-all duration-500">
+                  <h3 className="font-heading text-2xl text-golden mb-2">{item.title}</h3>
+                  <p className="text-sm text-primary-foreground/70 leading-relaxed">{item.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </SectionReveal>
       </section>
     </div>
   );

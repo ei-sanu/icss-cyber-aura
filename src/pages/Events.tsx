@@ -1,12 +1,12 @@
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Calendar, MapPin, Users } from "lucide-react";
-import SectionReveal from "@/components/SectionReveal";
 import event1 from "@/assets/event-1.jpg";
 import event2 from "@/assets/event-2.jpg";
 import event3 from "@/assets/event-3.jpg";
 import event4 from "@/assets/event-4.jpg";
 import event5 from "@/assets/event-5.jpg";
+import SectionReveal from "@/components/SectionReveal";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { Award, Calendar, MapPin, Megaphone, Route, ShieldCheck, Ticket, Users } from "lucide-react";
+import { useRef } from "react";
 
 const events = [
   {
@@ -56,6 +56,20 @@ const events = [
   },
 ];
 
+const eventFormats = [
+  { icon: Megaphone, title: "Awareness drives", text: "Short, high-energy sessions that make security practical for students." },
+  { icon: Ticket, title: "Workshops", text: "Hands-on labs for cloud security, ethical hacking, and incident response." },
+  { icon: Award, title: "Competitions", text: "CTFs and challenges that reward teamwork, depth, and speed." },
+  { icon: ShieldCheck, title: "Expert talks", text: "Panels and keynote sessions from security practitioners and founders." },
+];
+
+const eventStats = [
+  { label: "Annual stages", value: "12+" },
+  { label: "Cities reached", value: "20+" },
+  { label: "Students engaged", value: "1,000+" },
+  { label: "Partner sessions", value: "30+" },
+];
+
 const EventCard = ({
   event,
   index,
@@ -94,9 +108,8 @@ const EventCard = ({
       </motion.div>
 
       <div
-        className={`flex flex-col ${
-          isEven ? "md:flex-row" : "md:flex-row-reverse"
-        } gap-6 items-center`}
+        className={`flex flex-col ${isEven ? "md:flex-row" : "md:flex-row-reverse"
+          } gap-6 items-center`}
       >
         {/* Image */}
         <motion.div
@@ -183,6 +196,43 @@ const Events = () => {
         </div>
       </motion.section>
 
+      {/* Event stats */}
+      <section className="px-4 pb-10 sm:pb-14">
+        <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          {eventStats.map((stat, i) => (
+            <SectionReveal key={stat.label} delay={i * 0.08}>
+              <div className="green-card p-5 sm:p-6 text-center hover:glow-forest transition-all duration-500">
+                <div className="font-heading text-3xl sm:text-4xl text-golden mb-1">{stat.value}</div>
+                <div className="text-xs sm:text-sm text-primary-foreground/60">{stat.label}</div>
+              </div>
+            </SectionReveal>
+          ))}
+        </div>
+      </section>
+
+      {/* Event formats */}
+      <section className="max-w-6xl mx-auto px-4 pb-16 sm:pb-20">
+        <SectionReveal>
+          <div className="text-center mb-8 sm:mb-10">
+            <h2 className="font-heading text-3xl sm:text-5xl text-forest mb-3">Event formats we run</h2>
+            <p className="text-foreground/60 max-w-2xl mx-auto text-sm sm:text-base">
+              Every event is designed to leave attendees with a clear next step, not just a good day on stage.
+            </p>
+          </div>
+        </SectionReveal>
+        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6">
+          {eventFormats.map((item, i) => (
+            <SectionReveal key={item.title} delay={i * 0.1}>
+              <div className="green-card p-5 sm:p-6 h-full hover:glow-forest-strong transition-all duration-500">
+                <item.icon className="w-7 h-7 text-golden mb-4" />
+                <h3 className="font-heading text-2xl text-golden mb-2">{item.title}</h3>
+                <p className="text-sm text-primary-foreground/70 leading-relaxed">{item.text}</p>
+              </div>
+            </SectionReveal>
+          ))}
+        </div>
+      </section>
+
       {/* Scroll indicator */}
       <div className="flex justify-center pb-8">
         <motion.div
@@ -216,19 +266,21 @@ const Events = () => {
       {/* CTA */}
       <section className="pb-20 px-4">
         <SectionReveal>
-          <div className="max-w-3xl mx-auto text-center green-card p-8 sm:p-12 hover:glow-forest transition-all duration-500">
-            <h2 className="font-heading text-3xl sm:text-5xl text-golden mb-4">
-              Want to Host an Event?
-            </h2>
-            <p className="text-primary-foreground/70 mb-6 text-sm sm:text-base">
-              Partner with ICSS to bring cybersecurity awareness to your campus
-              or organization.
-            </p>
+          <div className="max-w-5xl mx-auto grid lg:grid-cols-[1fr_auto] gap-4 sm:gap-6 items-center green-card p-8 sm:p-10 hover:glow-forest transition-all duration-500">
+            <div>
+              <h2 className="font-heading text-3xl sm:text-5xl text-golden mb-4">
+                Want to host an event?
+              </h2>
+              <p className="text-primary-foreground/70 text-sm sm:text-base max-w-2xl leading-relaxed">
+                Partner with ICSS to bring cybersecurity awareness to your campus or organization with a format that fits your audience.
+              </p>
+            </div>
             <a
               href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-golden text-forest font-heading text-lg tracking-wider hover:shadow-[0_0_30px_hsl(47_100%_50%/0.5)] transition-all duration-300"
+              className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-golden text-forest font-heading text-lg tracking-wider hover:shadow-[0_0_30px_hsl(47_100%_50%/0.5)] transition-all duration-300 whitespace-nowrap"
             >
               Get in Touch
+              <Route size={16} />
             </a>
           </div>
         </SectionReveal>
