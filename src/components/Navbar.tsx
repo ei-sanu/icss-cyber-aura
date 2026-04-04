@@ -32,7 +32,7 @@ const Navbar = () => {
       className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4"
     >
       <div
-        className={`w-full max-w-5xl rounded-2xl transition-all duration-500 ${
+        className={`w-full max-w-5xl rounded-full transition-all duration-500 ${
           scrolled ? "bg-forest shadow-lg shadow-forest-deep/40" : "bg-forest"
         } backdrop-blur-xl border border-forest-light/20 px-5 sm:px-6 py-3`}
       >
