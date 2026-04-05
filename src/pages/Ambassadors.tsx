@@ -4,14 +4,11 @@ import { ChevronRight, Github, GraduationCap, Linkedin, MapPinned, Search, Spark
 import { useState } from "react";
 
 const ambassadors = [
-  { name: "Arjun Sharma", college: "IIT Delhi", role: "Lead Ambassador", skills: ["Pentesting", "OSINT"], region: "North" },
-  { name: "Priya Patel", college: "NIT Trichy", role: "Tech Lead", skills: ["Cloud Security", "Python"], region: "South" },
-  { name: "Rahul Verma", college: "BITS Pilani", role: "Ambassador", skills: ["Blockchain", "Forensics"], region: "West" },
-  { name: "Sneha Reddy", college: "IIIT Hyderabad", role: "Ambassador", skills: ["IoT", "ML Security"], region: "South" },
-  { name: "Vikram Singh", college: "DTU Delhi", role: "Campus Lead", skills: ["Network Security", "CCNA"], region: "North" },
-  { name: "Ananya Das", college: "Jadavpur University", role: "Ambassador", skills: ["Ethical Hacking", "VAPT"], region: "East" },
-  { name: "Karan Mehta", college: "VJTI Mumbai", role: "Ambassador", skills: ["Cloud", "DevSecOps"], region: "West" },
-  { name: "Divya Nair", college: "CEG Anna Univ", role: "Tech Lead", skills: ["Web Security", "Python"], region: "South" },
+  { name: "Somesh Ranjan Biswal", college: "Lovely Professional University", role: "Ambassador", skills: ["Pentesting", "OSINT"], region: "North" },
+  { name: "Ankit Kumar", college: "Lovely Professional University", role: "Ambassador", skills: ["Cloud Security", "Python"], region: "North" },
+  { name: "Karthik Karuppiah.s", college: "Lovely Professional University", role: "Ambassador", skills: ["Blockchain", "Forensics"], region: "South" },
+  { name: "Prabhjot Singh", college: "Lovely Professional University", role: "Ambassador ", skills: ["Network Security", "CCNA"], region: "North" },
+  { name: "shubham", college: "Lovely Professional University", role: "Ambassador", skills: ["Ethical Hacking", "VAPT"], region: "North" },
 ];
 
 const filters = ["All", "North", "South", "East", "West"];
@@ -79,8 +76,8 @@ const Ambassadors = () => {
                   key={f}
                   onClick={() => setActiveFilter(f)}
                   className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 ${activeFilter === f
-                      ? "bg-forest text-golden"
-                      : "bg-forest/10 border-2 border-forest/20 text-foreground/60 hover:border-forest hover:text-forest"
+                    ? "bg-forest text-golden"
+                    : "bg-forest/10 border-2 border-forest/20 text-foreground/60 hover:border-forest hover:text-forest"
                     }`}
                 >
                   {f}

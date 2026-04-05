@@ -121,20 +121,20 @@ const Home = () => {
       <motion.section ref={statsRef} style={{ y: statsY }} className="py-16 sm:py-20 px-4">
         <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-6 gap-4 sm:gap-6">
           {[
-            { value: "200+", label: "Global Clients", icon: Globe },
-            { value: "2016", label: "Established", icon: Shield },
-            { value: "50+", label: "Ambassadors", icon: Zap },
-            { value: "7+", label: "Programs", icon: Lock },
-            { value: "24/7", label: "Guidance", icon: Radar },
-            { value: "100%", label: "Growth Focus", icon: BrainCircuit },
+            { value: "Community", label: "Global Collaboration", icon: Globe },
+            { value: "Foundation", label: "Security First", icon: Shield },
+            { value: "Leadership", label: "Ambassador Culture", icon: Zap },
+            { value: "Learning", label: "Program Pathways", icon: Lock },
+            { value: "Mentorship", label: "Guided Progress", icon: Radar },
+            { value: "Innovation", label: "Future Ready", icon: BrainCircuit },
           ].map((stat, i) => (
             <SectionReveal key={stat.label} delay={i * 0.1}>
               <div className="green-card p-5 sm:p-6 text-center hover:scale-105 hover:glow-forest transition-all duration-500 group">
-                <stat.icon className="w-6 h-6 text-golden mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
-                <div className="font-heading text-3xl sm:text-4xl md:text-5xl text-golden">
+                <stat.icon className="w-6 h-6 text-golden mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
+                <div className="font-heading text-xl sm:text-2xl md:text-3xl text-golden">
                   {stat.value}
                 </div>
-                <div className="mt-1 text-xs sm:text-sm text-primary-foreground/60">{stat.label}</div>
+                <div className="mt-2 text-xs sm:text-sm text-primary-foreground/60">{stat.label}</div>
               </div>
             </SectionReveal>
           ))}

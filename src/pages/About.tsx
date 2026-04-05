@@ -6,11 +6,11 @@ import { Cloud, Code, Cpu, Eye, FlaskConical, HeartHandshake, Lock, Network, Shi
 import { useRef } from "react";
 
 const timeline = [
-  { year: "2016", event: "ICSS founded as a unit of GreenFellow IT Security Solutions Pvt Ltd" },
-  { year: "2018", event: "Expanded to 50+ clients with VAPT specialization" },
-  { year: "2020", event: "Launched Training & Development division" },
-  { year: "2022", event: "200+ global clients milestone reached" },
-  { year: "2024", event: "ICSS Ambassadors Program launched" },
+  { year: "Stage 1", event: "ICSS foundation focused on practical cybersecurity services and strong delivery standards." },
+  { year: "Stage 2", event: "Expanded into broader security consulting with deeper focus on assessment and testing." },
+  { year: "Stage 3", event: "Introduced learning and development initiatives for students and early professionals." },
+  { year: "Stage 4", event: "Strengthened community programs with consistent workshops and collaboration opportunities." },
+  { year: "Stage 5", event: "Built the Cybersecurity Ambassador Network to scale awareness and leadership." },
 ];
 
 const programs = [
@@ -66,7 +66,7 @@ const About = () => {
           </h1>
           <p className="text-foreground/70 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
             Indian Cyber Security Solutions (ICSS) is a unit of GreenFellow IT Security Solutions Pvt Ltd,
-            established in 2016, providing cutting-edge cybersecurity solutions to 200+ clients worldwide.
+            delivering cybersecurity services, training, and community initiatives for institutions and organizations.
           </p>
         </SectionReveal>
       </motion.section>
@@ -126,10 +126,6 @@ const About = () => {
             </div>
           </SectionReveal>
         </div>
-        {/* Placeholder note for user's own images */}
-        <p className="text-center text-foreground/40 text-xs mt-4 italic">
-          You can replace these images with your own company photos
-        </p>
       </section>
 
       {/* What makes ICSS different */}
@@ -210,7 +206,7 @@ const About = () => {
                     className="w-10 h-10 rounded-full bg-forest flex items-center justify-center glow-forest"
                     whileHover={{ scale: 1.2 }}
                   >
-                    <span className="text-xs font-heading text-lg text-golden">{item.year.slice(2)}</span>
+                    <span className="text-xs font-heading text-lg text-golden">{item.year.slice(-1)}</span>
                   </motion.div>
                 </div>
                 <div className="flex-1 green-card p-4 sm:p-5 hover:glow-forest transition-all duration-500">

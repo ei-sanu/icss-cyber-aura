@@ -5,51 +5,46 @@ import event4 from "@/assets/event-4.jpg";
 import event5 from "@/assets/event-5.jpg";
 import SectionReveal from "@/components/SectionReveal";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Award, Calendar, MapPin, Megaphone, Route, ShieldCheck, Ticket, Users } from "lucide-react";
+import { Award, Calendar, MapPin, Megaphone, Route, ShieldCheck, Ticket } from "lucide-react";
 import { useRef } from "react";
 
 const events = [
   {
-    title: "CyberSec Summit 2024",
-    date: "March 15, 2024",
+    title: "CyberSec Summit",
+    date: "Flagship event",
     location: "New Delhi, India",
-    attendees: "500+",
     description:
       "The flagship annual conference bringing together top cybersecurity professionals, ethical hackers, and industry leaders for keynotes, panels, and live demonstrations.",
     image: event1,
   },
   {
     title: "National Hackathon Championship",
-    date: "June 22-23, 2024",
+    date: "Challenge format",
     location: "Bangalore, India",
-    attendees: "300+",
     description:
       "A 48-hour intensive hackathon where teams compete to solve real-world cybersecurity challenges with mentorship from industry experts.",
     image: event2,
   },
   {
     title: "Cloud Security Workshop",
-    date: "August 10, 2024",
+    date: "Hands-on format",
     location: "Mumbai, India",
-    attendees: "200+",
     description:
       "Hands-on workshop covering AWS and Azure security best practices, cloud penetration testing, and compliance frameworks.",
     image: event3,
   },
   {
-    title: "ICSS Awards Ceremony 2024",
-    date: "October 5, 2024",
+    title: "ICSS Awards Ceremony",
+    date: "Recognition format",
     location: "Hyderabad, India",
-    attendees: "400+",
     description:
       "Celebrating excellence in cybersecurity with awards for top ambassadors, breakthrough research, and outstanding community contributions.",
     image: event4,
   },
   {
     title: "CTF Championship Finals",
-    date: "December 14-15, 2024",
+    date: "Competitive format",
     location: "Chennai, India",
-    attendees: "250+",
     description:
       "The ultimate Capture The Flag competition finale featuring the top teams from across India battling for the national championship title.",
     image: event5,
@@ -64,10 +59,10 @@ const eventFormats = [
 ];
 
 const eventStats = [
-  { label: "Annual stages", value: "12+" },
-  { label: "Cities reached", value: "20+" },
-  { label: "Students engaged", value: "1,000+" },
-  { label: "Partner sessions", value: "30+" },
+  { label: "Planning", value: "Structured" },
+  { label: "Delivery", value: "Hands-on" },
+  { label: "Collaboration", value: "Community" },
+  { label: "Outcome", value: "Practical" },
 ];
 
 const EventCard = ({
@@ -141,10 +136,6 @@ const EventCard = ({
               <span className="inline-flex items-center gap-1.5 text-xs text-primary-foreground/60">
                 <MapPin size={14} className="text-golden" />
                 {event.location}
-              </span>
-              <span className="inline-flex items-center gap-1.5 text-xs text-primary-foreground/60">
-                <Users size={14} className="text-golden" />
-                {event.attendees}
               </span>
             </div>
             <p className="text-sm text-primary-foreground/70 leading-relaxed">

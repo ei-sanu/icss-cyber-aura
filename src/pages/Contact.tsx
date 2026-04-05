@@ -31,7 +31,7 @@ const Contact = () => {
             {[
               { icon: ShieldCheck, title: "Partnerships", text: "Schools, colleges, and companies" },
               { icon: MessageCircle, title: "Events", text: "Workshops and awareness sessions" },
-              { icon: Clock3, title: "Support hours", text: "Mon to Sat, 10:00 AM to 6:00 PM" },
+              { icon: Clock3, title: "Support", text: "Prompt response from our coordination team" },
               { icon: Globe, title: "Coverage", text: "India-wide, with remote coordination" },
             ].map((item) => (
               <div key={item.title} className="green-card p-5 sm:p-6 hover:glow-forest transition-all duration-500">
@@ -91,7 +91,7 @@ const Contact = () => {
             <div className="space-y-4 sm:space-y-6">
               {[
                 { icon: Mail, label: "Email", value: "info@icss.in" },
-                { icon: Phone, label: "Phone", value: "+91 XXXX XXXXXX" },
+                { icon: Phone, label: "Phone", value: "Shared on request" },
                 { icon: MapPin, label: "Location", value: "India (Global Operations)" },
               ].map((item) => (
                 <div key={item.label} className="green-card p-4 sm:p-5 hover:glow-forest transition-all duration-500 flex items-start gap-4">

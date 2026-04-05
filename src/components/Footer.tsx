@@ -48,7 +48,7 @@ const Footer = () => (
             <Mail size={14} /> info@icss.in
           </a>
           <a href="#" className="inline-flex items-center gap-2 text-sm text-primary-foreground/60 hover:text-golden transition-colors duration-200">
-            <Phone size={14} /> +91 XXXX XXXXXX
+            <Phone size={14} /> Shared on request
           </a>
           <span className="inline-flex items-center gap-2 text-sm text-primary-foreground/60">
             <MapPin size={14} /> India (Global Operations)
