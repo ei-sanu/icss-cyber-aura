@@ -167,7 +167,7 @@ const Events = () => {
       >
         <div className="text-center max-w-3xl mx-auto">
           <SectionReveal>
-            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-forest text-golden mb-6">
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-forest text-white border border-white/20 mb-6">
               <Calendar size={14} />
               <span className="text-xs tracking-[0.2em] uppercase font-heading text-base">
                 Events & Milestones
@@ -268,7 +268,7 @@ const Events = () => {
             </div>
             <a
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-golden text-forest font-heading text-lg tracking-wider hover:shadow-[0_0_30px_hsl(47_100%_50%/0.5)] transition-all duration-300 whitespace-nowrap"
+              className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-golden text-forest font-heading text-lg tracking-wider hover:shadow-[0_0_30px_hsl(0_100%_41%/0.35)] transition-all duration-300 whitespace-nowrap"
             >
               Get in Touch
               <Route size={16} />

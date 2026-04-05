@@ -11,7 +11,7 @@ const NotFound = () => {
 
   return (
     <div className="relative flex min-h-screen items-center justify-center overflow-hidden px-4 py-20">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,hsl(47_100%_50%/0.35),transparent_35%),linear-gradient(180deg,hsl(47_100%_50%/0.18),hsl(161_96%_14%/0.08))]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,hsl(0_100%_41%/0.2),transparent_35%),linear-gradient(180deg,hsl(47_24%_92%/0.9),hsl(0_100%_41%/0.05))]" />
       <div className="relative z-10 max-w-2xl w-full green-card p-8 sm:p-10 text-center glow-forest">
         <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-golden/15 mb-5">
           <Shield className="w-8 h-8 text-golden" />

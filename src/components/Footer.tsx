@@ -35,7 +35,7 @@ const Footer = () => (
             <Link
               key={label}
               to={label === "Home" ? "/" : `/${label.toLowerCase()}`}
-              className="text-sm text-primary-foreground/60 hover:text-golden transition-colors duration-200"
+              className="text-sm text-primary-foreground/90 hover:text-golden transition-colors duration-200"
             >
               {label}
             </Link>
@@ -44,20 +44,20 @@ const Footer = () => (
 
         <div className="flex flex-col gap-3">
           <h4 className="font-heading text-xs tracking-widest text-golden/80 uppercase mb-2">Contact</h4>
-          <a href="mailto:info@icss.in" className="inline-flex items-center gap-2 text-sm text-primary-foreground/60 hover:text-golden transition-colors duration-200">
-            <Mail size={14} /> info@icss.in
+          <a href="mailto:info@icss.in" className="inline-flex items-center gap-2 text-sm text-primary-foreground/90 hover:text-golden transition-colors duration-200">
+            <Mail size={14} /> 
           </a>
-          <a href="#" className="inline-flex items-center gap-2 text-sm text-primary-foreground/60 hover:text-golden transition-colors duration-200">
+          <a href="#" className="inline-flex items-center gap-2 text-sm text-primary-foreground/90 hover:text-golden transition-colors duration-200">
             <Phone size={14} /> Shared on request
           </a>
-          <span className="inline-flex items-center gap-2 text-sm text-primary-foreground/60">
+          <span className="inline-flex items-center gap-2 text-sm text-primary-foreground/90">
             <MapPin size={14} /> India (Global Operations)
           </span>
         </div>
 
         <div>
           <h4 className="font-heading text-xs tracking-widest text-golden/80 uppercase mb-4">Connect</h4>
-          <p className="text-sm text-primary-foreground/60 mb-4">
+          <p className="text-sm text-primary-foreground/90 mb-4">
             Follow ICSS CAN for updates, events, and community highlights.
           </p>
           <div className="flex gap-3">
@@ -65,7 +65,7 @@ const Footer = () => (
               <a
                 key={i}
                 href={href}
-                className="p-2 rounded-lg border border-primary-foreground/20 hover:border-golden/60 hover:text-golden transition-all duration-300 text-primary-foreground/60"
+                className="p-2 rounded-lg border border-primary-foreground/20 hover:border-golden/60 hover:text-golden transition-all duration-300 text-primary-foreground/90"
               >
                 <Icon size={18} />
               </a>
@@ -74,7 +74,7 @@ const Footer = () => (
         </div>
       </div>
 
-      <div className="mt-10 pt-6 border-t border-primary-foreground/10 text-center text-xs text-primary-foreground/50">
+      <div className="mt-10 pt-6 border-t border-primary-foreground/20 text-center text-xs text-primary-foreground/90">
         © {new Date().getFullYear()} ICSS — Indian Cyber Security Solutions. All rights reserved.
       </div>
     </div>

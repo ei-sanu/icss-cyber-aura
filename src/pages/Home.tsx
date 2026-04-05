@@ -29,7 +29,7 @@ const Home = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-forest text-golden mb-8">
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-forest text-white border border-white/20 mb-8">
               <Zap size={14} />
               <span className="text-xs tracking-[0.2em] uppercase font-heading text-base">
                 Cybersecurity Ambassador Network
@@ -67,7 +67,7 @@ const Home = () => {
           >
             <Link
               to="/ambassadors"
-              className="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-forest text-golden font-heading text-xl tracking-wider hover:shadow-[0_0_30px_hsl(161_96%_14%/0.4)] transition-all duration-300"
+              className="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-forest text-background font-heading text-xl tracking-wider border border-background/25 hover:shadow-[0_0_30px_hsl(0_100%_41%/0.35)] transition-all duration-300"
             >
               Join Now
               <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
